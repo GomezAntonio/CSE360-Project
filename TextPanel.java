@@ -13,7 +13,7 @@ import javax.swing.filechooser.*;
 public class TextPanel extends JPanel
 {
 		//creates variables
-		private JTextField ErrorDisplayOP; //OP means user output
+		private JTextArea ErrorDisplayOP; //OP means user output
 		private JTextArea Input;
 		private JTextArea Output;
 		private JButton open;
@@ -36,7 +36,7 @@ public class TextPanel extends JPanel
 			Output = new JTextArea(38,38);
 			jsp1 = new JScrollPane(Input, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 			jsp2 = new JScrollPane(Output, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-			ErrorDisplayOP = new JTextField(20);
+			ErrorDisplayOP = new JTextArea(6,40);
 			clear = new JButton("Clear");
 			format = new JButton("Format");
 			JFileChooser fc = new JFileChooser();
@@ -59,7 +59,7 @@ public class TextPanel extends JPanel
 			setBackground(Color.LIGHT_GRAY);
 			setPreferredSize(new Dimension(1000,1000));
 			Font font = new Font("Dialog", Font.BOLD, 75);
-			Font font2 = new Font("Dialog", Font.ITALIC, 50);
+			Font font2 = new Font("Arial", Font.ITALIC, 25);
 			Font font3 = new Font("Arial", Font.LAYOUT_LEFT_TO_RIGHT, 12);
 			Input.setFont(font3);
 			Output.setFont(font3);
@@ -102,14 +102,14 @@ public class TextPanel extends JPanel
 						    	   fw.write(content);
 						    	   fw.flush();
 						    	   fw.close();
-						    	   
+						    	   JOptionPane.showMessageDialog(Output, "Successfully Saved");
 						    	   
 						       } catch (Exception e2) {
 						    	   JOptionPane.showMessageDialog(null,  e2.getMessage());
 						       }
 
 							}	
-							JOptionPane.showMessageDialog(Output, "Successfully Saved");
+							
 						}
 						else if (event.getSource() == format)
 						{
